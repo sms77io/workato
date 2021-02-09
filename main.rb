@@ -361,10 +361,10 @@
   },
   connection: {
     authorization: {
-      type: 'api_key',
       credentials: lambda { |connection|
-        params(p: connection['api_key'])
-      }
+        headers("Authorization": "Basic #{connection['api_key']}")
+      },
+      type: 'api_key',
     },
     base_uri: lambda do
       'https://gateway.sms77.io/api/'
