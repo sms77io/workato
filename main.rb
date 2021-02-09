@@ -363,6 +363,7 @@
     authorization: {
       credentials: lambda { |connection|
         headers("Authorization": "Basic #{connection['api_key']}")
+        headers('SentWith': ' Workato')
       },
       type: 'api_key',
     },
